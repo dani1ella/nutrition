@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navigation bar at the top -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="path_to_logo.png" alt="Logo" class="logo">
+
+        </div>
+        <div class="worker-profile">
+            <span class="worker-name">Daniella</span>
+            <img src="dani.jpg" alt="Worker Profile" class="profile-pic">
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Dashboard with buttons on the left side -->
+        <div class="dashboard">
+            <button onclick="showSection('dashboard')">Dashboard</button>
+            <button onclick="showSection('patient')">Patient</button>
+            <button onclick="showSection('add-patient')">Add Patient</button>
+            <button onclick="showSection('view-patient')">View Patient</button>
+            <button onclick="showSection('nutrition-info')">Nutrition Info</button>
+            <button onclick="showSection('vaccinations')">Vaccinations</button>
+            <button onclick="showSection('schedules')">Schedules</button>
+            <button onclick="showSection('add-schedule')">Add Schedule</button>
+            <button onclick="showSection('view-schedules')">View Schedules</button>
+            <button onclick="showSection('settings')">Settings</button>
+            <button onclick="showSection('update-profile')">Update Profile</button>
+            <button onclick="showSection('logout')">Logout</button>
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="section">
+                <h1>Dashboard</h1>
+                <p>Welcome to the dashboard!</p>
+            </div>
+
+            <!-- Patient Section -->
+            <div id="patient" class="section" style="display: none;">
+                <h1>Patient</h1>
+                <p>Patient information will be here.</p>
+            </div>
+
+            <!-- Add Patient Section -->
+            <div id="add-patient" class="section" style="display: none;">
+                <h1>Add Patient</h1>
+                <p>Add patient details here.</p>
+            </div>
+
+            <!-- Nutrition Info Section -->
+            <div id="nutrition-info" class="section" style="display: none;">
+                <h1>Nutrition Info</h1>
+                <!-- Top section with patient info and pie chart side by side -->
+                <div class="top-section">
+                    <!-- Left side: Patient information with image -->
+                    <div class="patient-info">
+                        <h3>Patient Information</h3>
+                        <img src="dani.jpg" alt="Patient Image" class="patient-pic">
+                        <p><strong>Name:</strong> Jane Doe</p>
+                        <p><strong>Trimester:</strong> 2nd</p>
+                        <p><strong>Weight:</strong> 68kg</p>
+                        <p><strong>Blood Pressure:</strong> 120/80 mmHg</p>
+                        <p><strong>Age:</strong> 29</p>
+                    </div>
+
+                    <!-- Right side: Pie chart for nutrient intake -->
+                    <div class="pie-chart">
+                        <h3>Nutrition Intake</h3>
+                        <canvas id="nutritionChart"></canvas> <!-- Pie chart canvas -->
+                    </div>
+                </div>
+
+                <!-- Table for food data below the top section -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Food Name</th>
+                                <th>Food Type</th>
+                                <th>Intensity</th>
+                                <th>Calories Burned%</th>
+                                <th>Scheduled</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Apple</td>
+                                <td>Fruit</td>
+                                <td>Low</td>
+                                <td>52</td>
+                                <td>Morning</td>
+                            </tr>
+                            <tr>
+                                <td>Chicken Breast</td>
+                                <td>Protein</td>
+                                <td>Moderate</td>
+                                <td>165</td>
+                                <td>Lunch</td>
+                            </tr>
+                            <tr>
+                                <td>Broccoli</td>
+                                <td>Vegetable</td>
+                                <td>Low</td>
+                                <td>55</td>
+                                <td>Evening</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Other sections (Vaccinations, Schedules, etc.) can be added similarly -->
+
+        </div>
+    </div>
+
+    <!-- Footer with contacts and social media links -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p>Contact us: +123-456-7890</p>
+                <p>Email: support@example.com</p>
+            </div>
+            <div class="social-media">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for rendering the pie chart -->
+    <script src="scripts.js"></script>
+
+    <!-- Script for handling page navigation -->
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none'; // Hide all sections
+            });
+            document.getElementById(sectionId).style.display = 'block'; // Show the selected section
+        }
+    </script>
+</body>
+</html>
